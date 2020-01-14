@@ -6,7 +6,7 @@
 @if($orientation == 'horizontal')
     <div class="field is-horizontal">
         <div class="field-label">
-            <label class="label">{{ title_case(Str::replace('_', ' ', $name)) }}</label>
+            <label class="label">{{ title_case(str_replace('_', ' ', $name)) }}</label>
         </div>
         <div class="field-body">
             <div class="field is-narrow">
@@ -29,7 +29,7 @@
     </div>
 @else
     <div class="field">
-        <label class="label">{{ title_case(Str::replace('_', ' ', $name)) }}</label>
+        <label class="label">{{ title_case(str_replace('_', ' ', $name)) }}</label>
         <div class="control">
             <div class="field">
                 <div class="control">

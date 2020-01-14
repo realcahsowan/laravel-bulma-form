@@ -8,7 +8,7 @@
 
     $first_option = Arr::get($options, 'empty_value', ' -- Pilih ' . title_case($name) . ' -- ');
 
-    $normalized_name = Str::replace('[]', '', $name);
+    $normalized_name = str_replace('[]', '', $name);
 
     if (Arr::get($options, 'multiple')) {
         $extra_class .= ' is-multiple';
@@ -20,7 +20,7 @@
 @if($orientation == 'horizontal')
     <div class="field is-horizontal">
         <div class="field-label is-normal">
-            <label class="label">{{ title_case(Str::replace('_', ' ', $normalized_name)) }}</label>
+            <label class="label">{{ title_case(str_replace('_', ' ', $normalized_name)) }}</label>
         </div>
         <div class="field-body">
             <div class="field">
@@ -35,7 +35,7 @@
                                     </option>
                                 @else
                                     <option value="{{ $label }}" {{ selected_status($label, $selected) }}>
-                                        {{ title_case(Str::replace('_', ' ', $label)) }}
+                                        {{ title_case(str_replace('_', ' ', $label)) }}
                                     </option>
                                 @endif
                             @endforeach
@@ -52,7 +52,7 @@
     </div>
 @else
     <div class="field">
-        <label class="label">{{ title_case(Str::replace('_', ' ', $normalized_name)) }}</label>
+        <label class="label">{{ title_case(str_replace('_', ' ', $normalized_name)) }}</label>
         <div class="control">
             <div class="select{{ $extra_class }}">
                 <select name="{{ $name }}" id="{{ $name }}" {{ $is_multiple . ' ' . $is_disabled }}>
@@ -64,7 +64,7 @@
                             </option>
                         @else
                             <option value="{{ $label }}" {{ selected_status($label, $selected) }}>
-                                {{ title_case(Str::replace('_', ' ', $label)) }}
+                                {{ title_case(str_replace('_', ' ', $label)) }}
                             </option>
                         @endif
                     @endforeach

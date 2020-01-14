@@ -67,7 +67,7 @@ class FormBuilderMakeCommand extends GeneratorCommand
 
         $replace["use {$formNamespace}\Controller;\n"] = '';
 
-        return Str::replace(
+        return str_replace(
             array_keys($replace),
             array_values($replace),
             parent::buildClass($name)

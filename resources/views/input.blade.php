@@ -2,7 +2,7 @@
     <input type="hidden" name="{{ $name }}" value="{{ Arr::get($options, 'value') }}">
 @else
     @php
-        $placeholder = Arr::has($options, 'placeholder') ? Arr::get($options, 'placeholder') : title_case(Str::replace('_', ' ', $name));
+        $placeholder = Arr::has($options, 'placeholder') ? Arr::get($options, 'placeholder') : title_case(str_replace('_', ' ', $name));
         $value = old($name, Arr::get($options, 'value'));
         $extra_class = $errors->has($name) ? ' is-danger' : '';
         $custom_class = Arr::get($options, 'custom_class');
@@ -16,9 +16,9 @@
         <div id="{{ $input_id }}" class="field is-horizontal {{ $custom_class }}">
             <div class="field-label is-normal">
                 @if(Arr::has($options, 'label_uppercase'))
-                    <label class="label">{{ strtoupper(Str::replace('_', ' ', $label)) }}</label>
+                    <label class="label">{{ strtoupper(str_replace('_', ' ', $label)) }}</label>
                 @else
-                    <label class="label">{{ title_case(Str::replace('_', ' ', $label)) }}</label>
+                    <label class="label">{{ title_case(str_replace('_', ' ', $label)) }}</label>
                 @endif
             </div>
             <div class="field-body">
@@ -37,9 +37,9 @@
     @else
         <div id="{{ $input_id }}" class="field {{ $custom_class }}">
             @if(Arr::has($options, 'label_uppercase'))
-                <label class="label">{{ strtoupper(Str::replace('_', ' ', $label)) }}</label>
+                <label class="label">{{ strtoupper(str_replace('_', ' ', $label)) }}</label>
             @else
-                <label class="label">{{ title_case(Str::replace('_', ' ', $label)) }}</label>
+                <label class="label">{{ title_case(str_replace('_', ' ', $label)) }}</label>
             @endif
             <div class="control">
                 <input class="input{{ $extra_class }}" type="{{ $type }}" name="{{ $name }}" value="{{ $value }}" placeholder="{{ $placeholder }}" {{ extra_attribute($options) }}>

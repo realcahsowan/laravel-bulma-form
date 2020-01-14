@@ -14,7 +14,7 @@
     <div class="field is-horizontal">
         <div class="field-label">
             @if(! Arr::has($options, 'no_label'))
-                <label class="label">{{ title_case(Str::replace('_', ' ', $name)) }}</label>
+                <label class="label">{{ title_case(str_replace('_', ' ', $name)) }}</label>
             @endif
         </div>
         <div class="field-body">
@@ -43,7 +43,7 @@
 @else
     <div class="field">
         @if(! Arr::has($options, 'no_label'))
-            <label class="label">{{ title_case(Str::replace('_', ' ', $name)) }}</label>
+            <label class="label">{{ title_case(str_replace('_', ' ', $name)) }}</label>
         @endif
         <div class="control">
             <div class="field">
